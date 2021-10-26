@@ -280,13 +280,13 @@ globalkeys = my_table.join(
 
     -- screenshots key + PrintScr
     awful.key({ }, "Print", function () awful.util.spawn("gnome-screenshot -a", false) end,
-        {description = "Scrot", group = "screenshots"}),
+        {description = "printScr on area", group = "screenshots"}),
     awful.key({ "Shift" }, "Print", function () awful.util.spawn("gnome-screenshot -i", false) end,
-        {description = "Scrot", group = "screenshots"}),
+        {description = "PrintScr", group = "screenshots"}),
 
     -- Hotkeys Awesome
 
-    awful.key({ modkey }, "s", hotkeys_popup.show_,help,
+    awful.key({ modkey }, "s", hotkeys_popup.show_help,
         {description = "show help", group="awesome"}),
 
     -- Tag browsing with modkey
@@ -443,9 +443,9 @@ globalkeys = my_table.join(
               {description = "reload awesome", group = "awesome"}),
 
     -- modify with from master client
-    awful.key({ altkey   }, "l",     function () awful.tag.incmwfact( 0.05)          end,
+    awful.key({ modkey   }, "l",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),
-    awful.key({ altkey   }, "h",     function () awful.tag.incmwfact(-0.05)          end,
+    awful.key({ modkey   }, "h",     function () awful.tag.incmwfact(-0.05)          end,
               {description = "decrease master width factor", group = "layout"}),
     
    -- Layout manipulation
