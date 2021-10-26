@@ -228,8 +228,12 @@ globalkeys = my_table.join(
     --   {description = "ncpamixer" , group = "terminal apps" }),
     awful.key({ modkey, altkey }, "b", function () awful.util.spawn( browser ) end,
         {description = "Brave browser" , group = "gui apps" }),
+    
     awful.key({ modkey, altkey }, "s", function () awful.util.spawn("spotify" ) end,
         {description = "Spotify" , group = "gui apps" }),
+    
+    awful.key({ modkey, altkey }, "t", function () awful.util.spawn("telegram-desktop" ) end,
+        {description = "Telegram" , group = "gui apps" }),
     
     -- awful.key({}, "XF86Tools", function () awful.util.spawn("spotify" ) end,
     --     {description = "Spotify" , group = "gui apps" }),
@@ -675,8 +679,17 @@ awful.rules.rules = {
     { rule_any = { type = { "dialog", "normal" } },
         properties = { titlebars_enabled = false } },
     
-    { rule = { class = "spotify"},
-        properties = { maximized = true, tag = awful.util.tagnames[4] } },
+    { rule = { class = "Firefox"},
+        properties = {tag = awful.util.tagnames[2] } },
+    
+    { rule = { class = "TelegramDesktop" },
+        properties = {tag = awful.util.tagnames[3]}},
+    
+    { rule = { class = "whatsdesk" },
+        properties = {tag = awful.util.tagnames[3]}},
+    
+    { rule = { class = "Vlc" },
+          properties = { maximized = true, tag = awful.util.tagnames[8] } },
                 
     -- Set applications to always map on the tag 1 on screen 1.
     -- find class or role via xprop command
@@ -699,27 +712,24 @@ awful.rules.rules = {
 
     -- Set applications to be maximized at startup.
     -- find class or role via xprop command
-    { rule = { class = editorgui },
-          properties = { maximized = true } },
+    -- { rule = { class = editorgui },
+    --       properties = { maximized = true } },
 
-    { rule = { class = "Gimp*", role = "gimp-image-window" },
-          properties = { maximized = true } },
+    -- { rule = { class = "Gimp*", role = "gimp-image-window" },
+    --       properties = { maximized = true } },
 
 
     { rule = { class = mediaplayer },
           properties = { maximized = true } },
 
-    { rule = { class = "Vlc" },
-          properties = { maximized = true } },
+    -- { rule = { class = "VirtualBox Manager" },
+    --       properties = { maximized = true } },
 
-    { rule = { class = "VirtualBox Manager" },
-          properties = { maximized = true } },
+    -- { rule = { class = "VirtualBox Machine" },
+    --       properties = { maximized = true } },
 
-    { rule = { class = "VirtualBox Machine" },
-          properties = { maximized = true } },
-
-    { rule = { class = "Xfce4-settings-manager" },
-          properties = { floating = false } },
+    -- { rule = { class = "Xfce4-settings-manager" },
+    --       properties = { floating = false } },
 
 
 
